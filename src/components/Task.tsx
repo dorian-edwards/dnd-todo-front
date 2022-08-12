@@ -1,9 +1,11 @@
 import Toggle from './Toggle'
 
 const Task = ({
+  id,
   content,
   completed,
 }: {
+  id: string
   content: string
   completed: boolean
 }) => (
