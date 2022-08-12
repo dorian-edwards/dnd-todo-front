@@ -12,7 +12,7 @@ const ControlPanel = () => {
 
   return (
     <>
-      <div className='ctrl-panel row mb-4 rounded-b-[5px]'>
+      <div className='ctrl-panel row mb-4 rounded-b-[5px] shadow-reg dark:shadow-none'>
         <div className='ctrl-primary flex justify-between w-full'>
           <p className='task-count c-panel-btn'>5 Items Left</p>
           {tablet && <Filter />}
@@ -22,7 +22,7 @@ const ControlPanel = () => {
         </div>
       </div>
       {!tablet && (
-        <div className='row justify-center rounded-[5px]'>
+        <div className='row justify-center rounded-[5px] shadow-reg dark:shadow-none'>
           <Filter />
         </div>
       )}

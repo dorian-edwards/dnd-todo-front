@@ -21,7 +21,7 @@ const ToDo = () => {
     <div className='flex flex-col content-center w-[87%] max-w-[540px]'>
       <TitleBar />
       <TaskInput onChange={onChange} value={input} onSubmit={handleSubmit} />
-      <div className='task-wrapper rounded-t-[5px] overflow-hidden'>
+      <div className='task-wrapper rounded-t-[5px] overflow-hidden shadow-reg dark:shadow-none'>
         <Task content='this is a task' completed={false} />
         <Task content='this is a task' completed={false} />
       </div>

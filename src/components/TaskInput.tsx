@@ -7,7 +7,7 @@ const TaskInput = ({
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onSubmit: (e: React.ChangeEvent<HTMLFormElement>) => void
 }) => (
-  <div className='row mb-4 tablet:mb-6 task-grid rounded-[5px] shadow-reg'>
+  <div className='row mb-4 tablet:mb-6 task-grid rounded-[5px] shadow-reg dark:shadow-nonec'>
     <button className='task-toggle'></button>
     <form onSubmit={onSubmit}>
       <input
