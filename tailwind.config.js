@@ -46,7 +46,10 @@ module.exports = {
         light: 'url(./assets/icon-sun.svg)',
         dark: 'url(./assets/icon-moon.svg)',
         cross: 'url(./assets/icon-cross.svg)',
+        check: 'url(./assets/icon-check.svg)',
         rnbw: 'linear-gradient(135deg, #55DDFF 0%, #C058F3 100%)',
+        'rnbw-complete':
+          'url(./assets/icon-check.svg), linear-gradient(135deg, #55DDFF 0%, #C058F3 100%)',
       },
       boxShadow: {
         reg: '0px 35px 50px -15px rgba(194, 195, 214, 0.5)',

@@ -4,10 +4,12 @@ const Task = ({
   id,
   content,
   completed,
+  taskToggle,
 }: {
   id: string
   content: string
   completed: boolean
+  taskToggle: (id: string) => void
 }) => (
   <div
     className={`row task-grid border-b-[1px] border-solid border-b-v-lght-gry-blue dark:border-b-v-dk-gry-blue-dm2 text-v-dk-gry-blue dark:text-lght-gry-blue-dm ${
@@ -17,7 +19,7 @@ const Task = ({
     }`}
     draggable='true'
   >
-    <Toggle />
+    <Toggle id={id} completed={completed} onClick={taskToggle} />
     <p>{content}</p>
     <button className='delete h-4 w-4 bg-cross'></button>
   </div>

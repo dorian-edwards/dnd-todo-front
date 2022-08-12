@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getTasks } from '../services/tasks'
+import { getTasks, toggleCompleted } from '../services/tasks'
 import TaskInput from './TaskInput'
 import TitleBar from './TitleBar'
 import Task, { TaskObject } from './Task'
@@ -7,7 +7,7 @@ import ControlPanel from './ControlPanel'
 
 const ToDo = () => {
   const [input, setInput] = useState('')
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = React.useState<Array<TaskObject>>([])
   const [filter, setFilter] = useState('All')
 
   useEffect(() => {
@@ -33,6 +33,19 @@ const ToDo = () => {
     setFilter(value)
   }
 
+  const handleTaskToggle = async (id: string) => {
+    const data = await toggleCompleted(id)
+    if (data.status === 'success') {
+      console.log('switch??')
+      const newTask = data.data
+      setTasks(
+        tasks.map((task: TaskObject) =>
+          task.id === newTask.id ? newTask : task
+        )
+      )
+    }
+  }
+
   const displayTasks =
     filter === 'All'
       ? [...tasks]
@@ -52,6 +65,7 @@ const ToDo = () => {
               id={task.id}
               content={task.content}
               completed={task.completed}
+              taskToggle={handleTaskToggle}
             />
           ))}
       </div>
