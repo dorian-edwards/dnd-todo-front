@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .row {
+    @apply text-[12px] leading-3 tablet:text-[18px] tablet:leading-[18px] font-sans font-medium h-12 tablet:h-16 flex items-center px-5 py-4 bg-white  dark:bg-v-dk-desat-blue;
+  }
+
+  .task-toggle {
+    @apply h-5 w-5 tablet:h-6 tablet:w-6 border-solid border-[1px] border-[#E3E4f1] dark:border-v-dk-gry-blue-dm2 rounded-full;
+  }
+}
+
+@layer utilities {
+  .check-background {
+    @apply bg-gradient-to-r from-sky-blue-corolla to-medium-orchid;
+  }
+
+  .task-grid {
+    @apply grid grid-cols-[1fr_7fr_0.5fr];
+  }
+
+  .c-panel-btn {
+    @apply font-sans text-[12px] leading-3 tablet:text-[14px] tablet:leading-[14px] text-dk-gry-blue dark:text-independence;
+  }
+
+  .filter-btn {
+    @apply font-sans font-bold text-[14px] leading-[14px] text-dk-gry-blue dark:text-independence;
+  }
+}
