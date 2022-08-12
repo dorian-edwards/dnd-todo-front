@@ -1,7 +1,4 @@
 import ToDo from './components/ToDo'
-import { getAll } from './services/tasks'
-
-getAll()
 
 function App() {
   return (

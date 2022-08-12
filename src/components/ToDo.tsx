@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
+import { getTasks } from '../services/tasks'
 import TaskInput from './TaskInput'
 import TitleBar from './TitleBar'
-import Task from './Task'
+import Task, { TaskObject } from './Task'
 import ControlPanel from './ControlPanel'
 
 const ToDo = () => {
   const [input, setInput] = useState('')
+  const [tasks, setTasks] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getTasks()
+      setTasks(data.data)
+    }
+
+    getData()
+  }, [])
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setInput(e.target.value)
@@ -22,8 +32,13 @@ const ToDo = () => {
       <TitleBar />
       <TaskInput onChange={onChange} value={input} onSubmit={handleSubmit} />
       <div className='task-wrapper rounded-t-[5px] overflow-hidden shadow-reg dark:shadow-none'>
-        <Task content='this is a task' completed={false} />
-        <Task content='this is a task' completed={false} />
+        {tasks.map((task: TaskObject) => (
+          <Task
+            key={task.id}
+            content={task.content}
+            completed={task.completed}
+          />
+        ))}
       </div>
       <ControlPanel />
     </div>
