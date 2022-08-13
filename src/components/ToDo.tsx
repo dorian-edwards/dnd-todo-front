@@ -4,6 +4,7 @@ import {
   toggleCompleted,
   createTask,
   deleteTask,
+  clearTasks,
 } from '../services/tasks'
 import TaskInput from './TaskInput'
 import TitleBar from './TitleBar'
@@ -65,6 +66,13 @@ const ToDo = () => {
     }
   }
 
+  const handleClear = async () => {
+    const data = await clearTasks()
+    if (data.status === 'success') {
+      setTasks(tasks.filter((task: TaskObject) => !task.completed))
+    }
+  }
+
   const displayTasks =
     filter === 'All'
       ? [...tasks]
@@ -95,6 +103,7 @@ const ToDo = () => {
         onClick={handleFilterToggle}
         mode={filter}
         completed={completed}
+        handleClear={handleClear}
       />
     </div>
   )

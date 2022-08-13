@@ -21,3 +21,8 @@ export async function deleteTask(id: string) {
   const { data } = await axios.delete(`${baseUrl}/api/tasks/${id}`)
   return data
 }
+
+export async function clearTasks() {
+  const { data } = await axios.delete(`${baseUrl}/api/tasks`)
+  return data
+}

@@ -5,10 +5,12 @@ const ControlPanel = ({
   onClick,
   mode,
   completed,
+  handleClear,
 }: {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
   mode: string
   completed: number
+  handleClear: () => void
 }) => {
   const [tablet, setTablet] = useState(window.innerWidth > 768)
 
@@ -26,7 +28,10 @@ const ControlPanel = ({
             completed === 1 ? 'item' : 'items'
           } left`}</p>
           {tablet && <Filter onClick={onClick} mode={mode} />}
-          <button className='c-panel-btn hover:text-v-dk-gry-blue dark:hover:text-lght-gry-blue-hov'>
+          <button
+            className='c-panel-btn hover:text-v-dk-gry-blue dark:hover:text-lght-gry-blue-hov'
+            onClick={handleClear}
+          >
             Clear Completed
           </button>
         </div>
