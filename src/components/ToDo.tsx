@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { getTasks, toggleCompleted } from '../services/tasks'
+import {
+  getTasks,
+  toggleCompleted,
+  createTask,
+  deleteTask,
+} from '../services/tasks'
 import TaskInput from './TaskInput'
 import TitleBar from './TitleBar'
 import Task, { TaskObject } from './Task'
@@ -22,10 +27,24 @@ const ToDo = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setInput(e.target.value)
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(input)
+    const content = input.trim()
+    if (content) {
+      const data = await createTask({ content })
+      if (data.status === 'success') {
+        setTasks(tasks.concat(data.data))
+      }
+    }
+
     return setInput('')
+  }
+
+  const handleDelete = async (id: string) => {
+    const data = await deleteTask(id)
+    if (data.status === 'success') {
+      setTasks(tasks.filter((task: TaskObject) => task.id !== id))
+    }
   }
 
   const handleFilterToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -53,6 +72,8 @@ const ToDo = () => {
       ? tasks.filter((task: TaskObject) => !task.completed)
       : tasks.filter((task: TaskObject) => task.completed)
 
+  const completed = tasks.filter((task: TaskObject) => !task.completed).length
+
   return (
     <div className='flex flex-col content-center w-[87%] max-w-[540px]'>
       <TitleBar />
@@ -66,10 +87,15 @@ const ToDo = () => {
               content={task.content}
               completed={task.completed}
               taskToggle={handleTaskToggle}
+              handleDelete={handleDelete}
             />
           ))}
       </div>
-      <ControlPanel onClick={handleFilterToggle} mode={filter} />
+      <ControlPanel
+        onClick={handleFilterToggle}
+        mode={filter}
+        completed={completed}
+      />
     </div>
   )
 }

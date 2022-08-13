@@ -4,9 +4,11 @@ import Filter from './Filter'
 const ControlPanel = ({
   onClick,
   mode,
+  completed,
 }: {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
   mode: string
+  completed: number
 }) => {
   const [tablet, setTablet] = useState(window.innerWidth > 768)
 
@@ -20,7 +22,9 @@ const ControlPanel = ({
     <>
       <div className='ctrl-panel row mb-4 rounded-b-[5px] shadow-reg dark:shadow-none'>
         <div className='ctrl-primary flex justify-between w-full'>
-          <p className='task-count c-panel-btn'>5 Items Left</p>
+          <p className='task-count c-panel-btn'>{`${completed} ${
+            completed === 1 ? 'item' : 'items'
+          } left`}</p>
           {tablet && <Filter onClick={onClick} mode={mode} />}
           <button className='c-panel-btn hover:text-v-dk-gry-blue dark:hover:text-lght-gry-blue-hov'>
             Clear Completed
