@@ -56,7 +56,6 @@ const ToDo = () => {
   const handleTaskToggle = async (id: string) => {
     const data = await toggleCompleted(id)
     if (data.status === 'success') {
-      console.log('switch??')
       const newTask = data.data
       setTasks(
         tasks.map((task: TaskObject) =>
