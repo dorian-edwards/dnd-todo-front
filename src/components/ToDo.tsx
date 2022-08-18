@@ -19,7 +19,7 @@ const ToDo = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await getTasks()
-      setTasks(data.data)
+      setTasks(data.data.tasks)
     }
 
     getData()
@@ -106,6 +106,8 @@ const ToDo = () => {
       />
     </div>
   )
+
+  // return <div>hello world</div>
 }
 
 export default ToDo

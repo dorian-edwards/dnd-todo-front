@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const baseUrl = 'https://stark-oasis-69277.herokuapp.com'
+// const baseUrl = 'https://stark-oasis-69277.herokuapp.com'
+
+const baseUrl = 'http://localhost:3001'
 
 export async function createTask(task: object) {
   const { data } = await axios.post(`${baseUrl}/api/tasks`, task)
