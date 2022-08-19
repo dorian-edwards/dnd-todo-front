@@ -19,12 +19,12 @@ export async function getTasks() {
 }
 
 export async function toggleCompleted(id: string) {
-  const { data } = await axios.put(`${baseUrl}/api/tasks/${id}`)
+  const { data } = await axios.put(`${baseUrl}/${id}`)
   return data
 }
 
 export async function deleteTask(id: string) {
-  const { data } = await axios.delete(`${baseUrl}/api/tasks/${id}`)
+  const { data } = await axios.delete(`${baseUrl}/${id}`)
   return data
 }
 
@@ -39,10 +39,8 @@ export async function moveTask(
   destination: number
 ) {
   const { data } = await axios.put(
-    `${baseUrl}/api/tasks/${id}/switch?sourceIndex=${source}&destinationIndex=${destination}`
+    `${baseUrl}/${id}/switch?sourceIndex=${source}&destinationIndex=${destination}`
   )
-
-  // http://localhost:3001/api/tasks/62fe31fae26380e47131edbe/switch?sourceIndex=5&destinationIndex=2
 
   return data
 }
