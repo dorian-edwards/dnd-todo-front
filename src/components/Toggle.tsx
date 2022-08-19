@@ -7,7 +7,8 @@ const TaskToggle = ({
   completed: boolean
   onClick: (id: string) => void
 }) => (
-  <button className='w-fit' onClick={() => onClick(id)}>
+  <button className='w-fit text-[0px]' onClick={() => onClick(id)}>
+    X
     <span
       className={`block h-5 w-5 rounded-full bg-v-lght-gry-blue dark:bg-v-dk-gry-blue-dm2 relative hover:bg-rnbw ${
         completed ? 'bg-rnbw hover:bg-rnbw' : ''
