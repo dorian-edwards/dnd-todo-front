@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-// const baseUrl = 'https://stark-oasis-69277.herokuapp.com'
+const baseUrl = '/api/tasks'
 
-const baseUrl = 'http://localhost:3001'
+// dev testing
+//const baseUrl = 'http://localhost:3001'
 
 export async function createTask(newTask: object) {
-  const data = await axios.post(`${baseUrl}/api/tasks`, newTask)
+  const data = await axios.post(baseUrl, newTask)
 
   return data
   // const { task, taskOrder } = data
@@ -13,7 +14,7 @@ export async function createTask(newTask: object) {
 }
 
 export async function getTasks() {
-  const { data } = await axios.get(`${baseUrl}/api/tasks`)
+  const { data } = await axios.get(baseUrl)
   return data
 }
 
@@ -28,7 +29,7 @@ export async function deleteTask(id: string) {
 }
 
 export async function clearTasks() {
-  const { data } = await axios.delete(`${baseUrl}/api/tasks`)
+  const { data } = await axios.delete(baseUrl)
   return data
 }
 
