@@ -31,9 +31,11 @@ const Task = ({
         <Toggle id={id} completed={completed} onClick={taskToggle} />
         <p>{content}</p>
         <button
-          className='delete h-4 w-4 bg-cross'
+          className='delete h-4 w-4 bg-cross text-[0px]'
           onClick={() => handleDelete(id)}
-        ></button>
+        >
+          X
+        </button>
       </div>
     )}
   </Draggable>

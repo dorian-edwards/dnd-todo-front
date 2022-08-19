@@ -10,9 +10,13 @@ const DarkToggle = () => {
 
   return (
     <button
-      className={`h-[26px] w-[26px] ${dark ? 'bg-light' : 'bg-dark'}`}
+      className={`h-[26px] w-[26px] text-[0px] ${
+        dark ? 'bg-light' : 'bg-dark'
+      }`}
       onClick={toggleDark}
-    />
+    >
+      X
+    </button>
   )
 }
 

@@ -71,6 +71,8 @@ What was even tricker was keeping track of the list order with the backend. For 
 
 I also tried to make accessibility more of a priority in this build by writing semantic HTML and incorporating [ARIA Landmarks](https://accessibility.oit.ncsu.edu/using-aria-landmarks-a-demonstration/). I'll admit this isn't my strong point at the moment but as I become more comfortable just making things work, I'll get better.
 
+[edit] never mind the Aria Landmarks made things worse. I think I need to do some digging first before I can incorporate them properly.
+
 ### Continued development
 
 Going forward I'll continue to make accessibility more of a priority building it in from the ground up rather than backtracking and trying to tack it on at the end.
