@@ -110,7 +110,11 @@ const ToDo = () => {
   const completed = tasks.filter((task: TaskObject) => !task.completed).length
 
   return (
-    <div className='flex flex-col content-center w-[87%] max-w-[540px]'>
+    <div
+      className='flex flex-col content-center w-[87%] max-w-[540px]'
+      role='main'
+      aria-roledescription='wrapper for entire todo list app'
+    >
       <TitleBar />
       <TaskInput onChange={onChange} value={input} onSubmit={handleSubmit} />
       <DragDropContext onDragEnd={handleOnDragEnd}>
@@ -147,8 +151,6 @@ const ToDo = () => {
       />
     </div>
   )
-
-  // return <div>hello world</div>
 }
 
 export default ToDo
