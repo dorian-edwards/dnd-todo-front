@@ -14,7 +14,6 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -36,14 +35,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.png)
+![todo app screenshot](./screenshot.png)
 
 ### Links
 
 - [Live](https://stark-oasis-69277.herokuapp.com/)
 - [Repo (frontend)](https://github.com/dorian-edwards/dnd-todo-front)
 - [Repo (backend)](https://github.com/dorian-edwards/dnd-todo-back)
-- [Solution]()
+- [Solution](https://www.frontendmentor.io/solutions/full-stack-drag-and-drop-todo-app-QlLBlm7rQj)
 
 ## My process
 
